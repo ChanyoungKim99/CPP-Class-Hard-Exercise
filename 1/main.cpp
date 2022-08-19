@@ -16,4 +16,10 @@ int main()
 	s4 += s3;
 	s4.Print();
 
+	s4[1] = 'o';
+	s4.Print();
+	char c = s4[6];
+	std::cout << c << std::endl;
+
+	std::cout << s3;
 }

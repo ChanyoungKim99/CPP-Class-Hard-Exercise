@@ -90,6 +90,17 @@ public:
 		return pt2;
 	}
 
+	char& operator[] (int index)
+	{
+		return mString[index];
+	}
+
+	friend std::ostream& operator << (std::ostream& os, const String& right)
+	{
+		os << right.mString;
+		return os;
+	}
+
 	void Print();
 };
 
