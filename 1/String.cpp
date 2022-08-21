@@ -49,8 +49,6 @@ String String::operator+ (const String& right)
 	int length1 = int(strlen(mString)) + 1;
 	int length2 = int(strlen(right.mString)) + 1;
 
-	strcpy_s(mString, length1, mString);
-
 	for (int i = 0; i < length2; i++)
 	{
 		mString[i + length1 - 1] = right.mString[i];
@@ -71,20 +69,12 @@ String String::operator+= (const String& right)
 	int length1 = int(strlen(mString)) + 1;
 	int length2 = int(strlen(right.mString)) + 1;
 
-	String pt;
-
-	strcpy_s(pt.mString, length1, mString);
-
 	for (int i = 0; i < length2; i++)
 	{
-		pt.mString[i + length1 - 1] = right.mString[i];
+		mString[i + length1 - 1] = right.mString[i];
 	}
 
-	String pt2;
-	strcpy_s(pt2.mString, length1 + length2 - 1, pt.mString);
-
-	*this = pt2;
-	return pt2;
+	return *this;
 }
 
 char& String::operator[] (int index)
